@@ -124,6 +124,9 @@ static const char *colorname[] = {
 	"#1e1e1e", /* default background colour */
 };
 
+static char *openinvim[] = { "/bin/sh", "-c",
+	"f=$(mktemp) && cat > $f && st nvim $f; rm -f $f", "externalpipe", NULL };
+
 
 /*
  * Default colors (colorname index)
@@ -209,6 +212,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
+	{ MODKEY,               XK_F1,       externalpipe,    {.v = openinvim} },
 };
 
 /*
